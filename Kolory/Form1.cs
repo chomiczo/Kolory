@@ -15,6 +15,28 @@ namespace Kolory
         public Form1()
         {
             InitializeComponent();
+            this.trackBar1_ValueChanged(this, null);
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            panel1.BackColor = Color.FromArgb(trackBar1.Value, trackBar2.Value, trackBar3.Value);
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if(e.KeyChar == '\u001B')
+            //{
+            //    Close();
+            //}
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape) 
+            {
+                Close();
+            }
         }
     }
 }
